@@ -35,6 +35,12 @@
     netmask 255.255.255.192
     gateway 172.16.68.1
 
+auto enp0s3
+iface enp0s3 inet static
+address 172.16.68.14/26
+netmask 255.255.255.192
+gateway 172.16.68.1
+
 Чтобы изменения вступили в силу выполнена команда:
 `sudo systemctl restart networking.service`
 
@@ -361,8 +367,10 @@ Kаждая строка - пользователь.
 `sudo nano /etc/hosts`
 
 Добавим строчки \
-    72.16.68.4 user1ubuntu \
-    172.16.68.5 user3kali
+172.16.68.4 user1ubuntu 
+172.16.68.5 user3kali
+172.16.68.12 user12
+172.16.68.14 user14
 
 
 ![Alt text](image-28.png)
@@ -464,7 +472,6 @@ Kаждая строка - пользователь.
     `sudo apt update`
     `sudo apt install openmpi-bin gcc`
    -  Выполнить компиляцию
-   
     `mpicc -fopenmp main.c -o myprogram`
    -  Запустите вашу программу с помощью следующей команды:
     `mpirun -np <num_processes> ./myprogram`
